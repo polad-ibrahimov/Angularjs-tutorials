@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+
+
+        });
+
+    </script>
+
+    <script>
+
+        // hatalar var
+    </script>
+
+    <style>
+
+        .kutu {
+            height: 30px;
+            width: 200px;
+            margin: 10px;
+
+        }
+
+        button {
+
+            height: 40px;
+            width: 200px;
+            margin: 10px;
+
+        }
+
+        .kutu.ng-dirty {
+
+            background: cornflowerblue;
+
+        }
+
+        .kutu.ng-invalid {
+
+            background: red;
+
+        }
+
+        .kutu.ng-valid {
+
+            background: green;
+        }
+
+        .kutu.ng-pristine {
+
+            background: #ccc;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+    <form name="myform">
+        <input class="kutu" ng-model="numara" type="number" placeholder="rakam giriniz"/><br>
+        <input class="kutu" ng-model="mail" type="email" placeholder="enail giriniz"/><br>
+            <button>mesajı gönder</button>
+
+
+
+    </form>
+
+
+</body>
+</html>

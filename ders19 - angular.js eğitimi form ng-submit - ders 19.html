@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope,$http){
+            $scope.eylem=function(){
+
+                $scope.data={"rakam":$scope.numara,"mail":$scope.mail};
+
+                $http.post("/dosya.php",$scope.data).then(function(response){
+
+                    $scope.cevap=response.data;
+
+
+                });
+
+
+            }
+
+
+
+        });
+
+    </script>
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<form name="myform" ng-submit="eylem()">
+    <input class="kutu" ng-model="numara" type="number" placeholder="rakam giriniz"/><br>
+    <input class="kutu" ng-model="mail" type="email" placeholder="enail giriniz"/><br>
+
+    <input type="submit" value="mesaj gönder" />
+
+</form><br>
+{{cevap}}
+
+
+</body>
+</html>

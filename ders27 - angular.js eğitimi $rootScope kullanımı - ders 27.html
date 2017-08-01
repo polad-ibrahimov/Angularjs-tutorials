@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol1",function($scope,$rootScope){
+            $rootScope.deger="bu kontrol 1 in içinde";
+
+
+        });
+
+        benimapp.controller("mycontrol2",function($scope,$rootScope){
+
+            $scope.benimdeger=$rootScope.deger;
+
+
+
+        });
+
+    </script>
+
+
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="mycontrol1">
+    {{deger}}
+    <br>
+    benim kontrol 1
+
+</div>
+<br>
+
+<hr>
+
+<div ng-controller="mycontrol2">
+    {{benimdeger}}
+    <br>
+    benim kontrol 2</div>
+
+
+
+
+</body>
+</html>

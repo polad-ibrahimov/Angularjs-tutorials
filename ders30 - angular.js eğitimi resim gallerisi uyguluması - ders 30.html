@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.resim="images/resim.jpg" ;
+
+
+        });
+
+        benimapp.directive("ozel",function(){
+
+            return {
+
+                link:function($scope,$element,$attr){
+
+                    $element.on("click",function(){
+
+                    $scope.resim=$attr.ngSrc;
+                    $scope.$digest();
+                    $element.css({"border":"2px solid blue"});
+
+
+                    });
+                }
+
+            }
+
+
+        });
+
+    </script>
+
+
+    <style>
+        .resimler img {
+            cursor: pointer;
+            height: 100px;
+            width: 122px;
+
+        }
+
+        .orta img {
+            height: 500px;
+            width: 500px;
+        }
+
+
+    </style>
+
+
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<div class="resimler">
+
+    <img ozel ng-src="images/resim.jpg" width="255" height="159" alt="" />
+    <img ozel ng-src="images/123456.jpg" />
+    <img ozel ng-src="images/asdasd.jpg" />
+    <img ozel ng-src="images/love_colorful.jpg" />
+
+</div>
+
+<div class="orta">
+    <img ng-src="{{resim}}" />
+
+</div>
+
+
+</body>
+</html>

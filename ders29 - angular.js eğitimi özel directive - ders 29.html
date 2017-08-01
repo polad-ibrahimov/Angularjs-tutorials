@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+
+
+
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.veriler=["deneme","ahmet","veli","can"];
+
+
+
+        });
+
+        benimapp.directive("mydirective",function(){
+
+            return {
+
+                restrict:'C',// E element , A attribute C class için
+                transclude:true,
+                template:'<div ng-transclude></div><div class="mydiv">deneme bir directive</div>',
+
+                link:function(scope,element,attrs) {
+
+                    element.css({'border':'3px solid red'});
+                    element.on("click",function(){
+
+                        alert(element.html());
+
+
+                    });
+
+                }
+            }
+
+        });
+
+        benimapp.directive("ozel",function(){
+
+            return{
+
+                restrict:'A',
+                link:function(scope,element,attrs) {
+
+                    element.css({'background':'black','color':'white'});
+
+                    element.html(element.html().substring(0,attrs.ozel));
+                    element.append('<span style="color:blue;cursor:pointer;">...devamını oku</span>');
+
+
+                }
+            }
+
+        });
+
+        benimapp.directive("goster",function(){
+
+
+            return {
+                restrict:'A',
+
+                link:function(scope,element,attrs) {
+                    console.log(attrs.goster);
+
+                    if(attrs.goster=='true'){
+
+                        element.css({"dislay":"block"});
+
+                    }else {
+
+                        element.css({"display":"none"});
+
+
+                    }
+
+                }
+            }
+
+        });
+
+    </script>
+
+    <style>
+        .mydiv {
+
+            background: cornflowerblue;
+            color: white;
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            font-size: 20px;
+
+
+        }
+
+
+
+
+    </style>
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+bu element için
+<mydirective></mydirective>
+<hr>
+
+
+bu class için
+<div class="mydirective"></div>
+<hr>
+
+bu da attribute için
+<div mydirective>burası özel attr için</div>
+
+<hr>
+
+<div goster="false" ozel="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolores neque nobis non odit placeat similique voluptatem? Beatae, blanditiis, consequuntur culpa cumque est explicabo nemo obcaecati optio possimus rerum veritatis.</div>
+
+
+
+
+</body>
+</html>

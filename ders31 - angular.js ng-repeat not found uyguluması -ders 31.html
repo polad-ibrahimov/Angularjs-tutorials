@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+
+
+    <script>
+
+        var myapp = angular.module("myapp",['ngAnimate']);
+
+        myapp.controller("mycontrol",function($scope){
+
+            $scope.isimler=["ahmet","sevgi","can","aslan"];
+
+        });
+
+    </script>
+
+    <style>
+        .deneme {
+
+            transition: all 0.5s;
+
+            background: pink;
+            color: red;
+            width: 200px;
+            height: 40px;
+            margin-top: 0px;
+
+
+
+        }
+
+        .deneme.ng-hide {
+
+            margin-top: 30px;
+
+            opacity: 0;
+
+
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<input type="text" ng-model="arama">
+
+<br>
+
+<div ng-show="(isimler|filter:arama).length==0" class="deneme">sonuç bulunamadı !!!</div>
+
+<ul>
+    <li ng-repeat="isim in isimler | filter:arama">{{isim}}</li>
+</ul>
+
+</body>
+</html>

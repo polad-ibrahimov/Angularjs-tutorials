@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.kontrol=true;
+
+            $scope.eylem=function(){
+
+
+
+
+            }
+
+
+        });
+
+    </script>
+
+    <style>
+        .kirmizi {
+
+            background-color: red;
+
+
+
+        }
+
+
+    </style>
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+
+<input type="checkbox" ng-model="kontrol">
+
+{{kontrol}}
+
+<div ng-class="{'kirmizi':kontrol}">deneme bu derss</div>
+
+
+</body>
+</html>

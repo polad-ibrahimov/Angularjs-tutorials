@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.deger=false;
+            $scope.eylem=function(){
+
+                $scope.deger=!$scope.deger;
+
+
+
+            }
+
+        });
+
+    </script>
+
+    <style>
+        .resim {
+            transition: all 0.5s;
+            height: 450px;
+            width: 320px;
+
+
+        }
+        .resim.ng-hide {
+
+            transform:rotateZ(180deg);
+            height: 10px;
+            width: 10px;
+            opacity: 0;
+            border:50px solid red;
+
+
+
+        }
+
+
+    </style>
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<button ng-click="eylem()">göster/gizle</button><br>
+
+<img class="resim" ng-hide="deger" ng-src="http://www.internethaber.com/images/other/hulya-avsar.20141215150040.jpg" /><br>
+
+
+
+</body>
+</html>

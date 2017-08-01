@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.btn=true;
+
+            $scope.eylem=function(c){
+
+
+                alert(c);
+            }
+
+        });
+
+    </script>
+
+    <style>
+        .deneme {
+
+            cursor: pointer;
+            background: cornflowerblue;
+            color: white;
+            width: 150px;
+            height: 30px;
+            border: none;
+            outline: none;
+
+        }
+            .deneme:disabled {
+
+                cursor: not-allowed;
+                background: #ccc;
+
+            }
+
+
+    </style>
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+<input ng-keyup="btn=false" type="text" ng-model="mytext" />
+<button ng-click="eylem(mytext)" ng-disabled="btn || mytext.length==0" class="deneme">ekle</button>
+
+</body>
+</html>

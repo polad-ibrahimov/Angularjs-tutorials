@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.isimler=[];
+
+            $scope.veriler=[{"ad":"ahmet","borc":50},
+                {"ad":"mehmet","borc":150},
+                {"ad":"alev","borc":125},
+                {"ad":"derya","borc":90},
+                {"ad":"fikriye","borc":40}];
+
+            $scope.eylem=function(){
+
+                $scope.isimler=$scope.veriler.filter(function(a){
+
+                    return a.borc<90;
+
+                });
+
+            }
+
+
+
+
+
+        });
+
+    </script>
+
+    <style>
+
+
+    </style>
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+<button ng-click="eylem()">çalıştır</button>
+
+<ul>
+    <li ng-repeat="isim in isimler">{{isim}}</li>
+</ul>
+
+</body>
+</html>

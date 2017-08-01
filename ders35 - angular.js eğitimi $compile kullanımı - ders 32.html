@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope,$compile){
+
+            //angular.element(benimdiv).append($compile('<input type="text" placeholder="isim yaz" ng-model="kutu">')($scope));
+
+            //$compile(icerik)($scope)
+
+            $scope.eylem=function(a) {
+
+                alert(a);
+
+            }
+
+        });
+
+        /*benimapp.directive("mydirective",function(){
+
+            return {
+                transclude:true,
+                //template:'<div ng-transclude></div><input type="text" ng-model="kutu" /> '
+
+
+
+            }
+
+        });*/
+
+        benimapp.directive("mydirective",function($compile){
+
+            return {
+                transclude:true,
+
+                link:function($scope,$element,$attr){
+
+                    $element.append($compile('<input type="text" ng-model="kutu" />')($scope));
+                    $element.append($compile('<button ng-click="eylem(kutu)">tıkla</button>')($scope));
+
+
+
+                }
+
+
+            }
+
+        });
+
+
+
+
+    </script>
+
+
+    <style>
+        .divim {
+
+            width: 300px;
+            border: 2pc solid #ccc;
+            padding: 15px;
+
+
+        }
+
+
+    </style>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+
+<div mydirective class="divim">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto, cumque doloribus eaque ex id inventore iusto libero molestiae non officia placeat provident quis quisquam rem sequi sint suscipit. Fugiat.
+
+
+</div>
+
+<hr>
+
+
+</body>
+</html>

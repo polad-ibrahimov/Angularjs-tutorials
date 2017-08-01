@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            $scope.iller=["istanbul","ankara","izmir","şanlıurfa","antep","maraş"];
+
+            $scope.iller.unshift("bir il seçiniz");
+            $scope.kontrol=$scope.iller[0];
+
+
+            $scope.eylem=function(a){
+
+
+                alert(a);
+            }
+
+            $scope.veriler=[{"id":1,"ad":"mehmet"},{"id":2,"ad":"alev"}];
+
+        });
+
+
+    </script>
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<select ng-change="eylem(kontrol)" ng-model="kontrol" ng-options="veri.id as veri.ad for veri in veriler"></select>
+<br>
+
+
+</body>
+</html>

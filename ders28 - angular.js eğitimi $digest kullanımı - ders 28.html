@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+
+
+
+    <script>
+
+        var benimapp = angular.module("myapp",[]);
+
+        benimapp.controller("mycontrol",function($scope){
+
+            document.getElementById("btn").addEventListener("click",function(){
+
+                $scope.deger=Math.random();
+                console.log($scope.deger);
+                $scope.$digest(); //$apply   -> $rootScope u günceller
+
+
+            });
+
+
+        });
+
+    </script>
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<button id="btn">ekle</button>
+{{deger}}
+
+</body>
+</html>

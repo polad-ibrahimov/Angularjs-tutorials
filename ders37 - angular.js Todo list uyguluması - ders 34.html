@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+
+    <script>
+        var myapp=angular.module('mymodul',[]);
+
+        myapp.controller("mycontrol",function($scope){
+
+            $scope.veriler=[{"ad":"dılo","soyad":"sürücü","email":"xxxx@hotmail.com"},
+                {"ad":"derman","soyad":"akar","email":"xxxx@hotmail.com"},
+                {"ad":"dünya","soyad":"bitmez","email":"xxxx@hotmail.com"}];
+
+            $scope.ekle=function(){
+
+                $scope.veriler.push({"ad":$scope.adi,"soyad":$scope.soyadi,"email":$scope.emaili});
+                $scope.adi="";
+                $scope.soyadi="";
+                $scope.emaili="";
+
+            }
+
+            $scope.sil=function (a) {
+
+
+                $scope.veriler.splice(a,1);
+            }
+
+            $scope.guncelle=function(b) {
+
+                $scope.adi=$scope.veriler[b].ad;
+                $scope.soyadi=$scope.veriler[b].soyad;
+                $scope.emaili=$scope.veriler[b].email;
+                $scope.deger=b;
+
+
+            }
+
+            $scope.update=function (){
+                $scope.veriler.splice($scope.deger,1,{"ad":$scope.adi,"soyad":$scope.soyadi,"email":$scope.emaili});
+
+                $scope.adi="";
+                $scope.soyadi="";
+                $scope.emaili="";
+            }
+        });
+
+
+    </script>
+
+
+
+
+</head>
+<body ng-app="mymodul" ng-controller="mycontrol">
+
+<div ng-app="myapp" ng-controller="mycontrol">
+
+    <div class="container">
+        <div class="panel">
+            <h2>todo list</h2>
+            <p>angular.js dersleri Dılo sürücü </p>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ad</th>
+                <th>soyad</th>
+                <th>email</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td><input type="text" ng-model="adi" class="form-control"></td>
+                <td><input ng-model="soyadi" type="text" class="form-control"></td>
+                <td><input ng-model="emaili" type="text" class="form-control"></td>
+                <td><button ng-click="ekle()" class="btn-success">üye ekle</button></td>
+                <td><button ng-click="update()"  class="btn-primary">güncelle</button></td>
+
+
+            </tr>
+            <tr ng-repeat="veri in veriler">
+                <td>{{veri.ad}}</td>
+                <td>{{veri.soyad}}</td>
+                <td>{{veri.email}}</td>
+                <td><button ng-click="sil($index)" class="btn-danger">sil</button></td>
+                <td><button ng-click="guncelle($index)" class="btn-primary">güncelle</button></td>
+
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+</body>
+</html>

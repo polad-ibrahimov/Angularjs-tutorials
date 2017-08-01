@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Başlık</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script>
+		
+		
+		
+		var benimapp = angular.module("myapp",[]);
+		
+		benimapp.controller("mycontrol",function($scope,$http){
+
+			$scope.diziler=["araba","tren","kaymon","metrobüs","ferrari"];
+				
+			$scope.eylem=function(a) {
+				//alert(a);	
+				$scope.diziler.splice(a,1);
+			}
+		
+		});
+		
+	
+	</script>
+	
+	<style>
+
+		
+	
+	</style>
+	
+
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+<ul>
+	<li ng-repeat="x in diziler"><button ng-click="eylem($index)">sil</button>{{x}}</li>
+
+</ul>
+
+
+</body>
+</html>

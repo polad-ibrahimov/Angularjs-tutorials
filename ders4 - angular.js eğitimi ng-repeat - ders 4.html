@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Başlıksız Belge</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+<script>
+	var benimapp = angular.module("myapp",[]) ;
+ 	benimapp.controller("mycontrol",function($scope){
+		
+		$scope.veriler=[{"ad":"ahmet","yas":28},
+		{"ad":"recep","yas":20},
+		{"ad":"mehmet","yas":128},
+		{"ad":"fikri","yas":51},
+		{"ad":"fikriye","yas":20}];
+		
+		
+	});
+ 
+
+
+</script>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol" >
+	<ul>
+
+
+		<li ng-repeat="veri in veriler">üyenin adı : {{veri.ad}}<br>üyenin yaşı : {{veri.yas}}</li>
+
+
+
+	</ul>
+
+
+
+</body>
+</html>

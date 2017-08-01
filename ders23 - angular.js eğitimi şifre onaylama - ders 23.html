@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+        benimapp.controller("mycontrol",function($scope){
+
+
+
+        });
+
+
+    </script>
+
+    <style>
+        button {
+            cursor: pointer;
+            background: cornflowerblue;
+            color: white;
+            border: none;
+            outline: none;
+            height: 40px;
+            width: 150px;
+
+
+
+        }
+
+        button:disabled {
+
+            cursor: not-allowed;
+            background-color: #ccc;
+
+
+        }
+
+    </style>
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+
+
+<input type="text" ng-model="kutu" placeholder="şifre"> <br>
+
+<input type="text" ng-model="kutu1" placeholder="şifre onayla"><div ng-show="kutu!=kutu1 && kutu1 && kutu" style="color:red; height: 20px; width: 150px; background: pink;">şifreler uyuşmuyor</div>
+<button ng-disabled="kutu!=kutu1 || !kutu || !kutu1">gönder</button>
+
+
+
+</body>
+</html>

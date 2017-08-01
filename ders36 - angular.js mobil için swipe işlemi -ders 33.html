@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-touch.js"></script>
+
+    <script>
+        var myapp=angular.module('mymodul',['ngTouch']);
+
+        myapp.controller("mycontrol",function($scope){
+            $scope.say=0;
+
+        });
+
+// ders anlaşılamadı : https://www.youtube.com/watch?v=3_MdenhfX-Q&index=36&list=PLO0Gm_zAXCHwHOC7DHExOeLMQiWFxQE3_
+    </script>
+
+
+    <style>
+        .divim {
+            height: 200px;
+            width: 200px;
+            position: fixed;
+            background: cornflowerblue;
+            color: white;
+            font-size: 50px;
+            text-align: center;
+
+        }
+        .img {
+            height: 200px;
+            width: 200px;
+        }
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div ng-app="mymodul" ng-controller="mycontrol">
+    telefonla divin üzerinde sağa sola git
+    <div ng-swipe-right="say=say+1" ng-swipe-left="say=say-1" class="divim">
+        <img ng-src="https://upload.wikimedia.org/wikipedia/tr/a/a9/Kaptan_Resim_3.jpg" ng-show="say==0" />
+        <img ng-src="http://www.sendeyim.net/uploads/resim-galerisi/dag-resimleri_740860.jpg" ng-show="say==1" />
+        <img ng-src="http://www.resimle.net/data/media/302/HQ-resim%20(1).jpg" ng-show="say==2" />
+        <div ng-show="say==3">başka resim yok</div>
+        {{say}}
+    </div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Başlık</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script>
+		
+		var benimapp = angular.module("myapp",[]);
+		
+		benimapp.controller("mycontrol",function($scope,$http){
+			
+			
+			$scope.deger=true;
+			$scope.eylem=function(){
+			
+				$scope.deger=!$scope.deger;
+			
+			}
+		
+		
+		
+		});
+		
+	
+	</script>
+	
+	<style>
+		.deneme {
+			height:100px;
+			width:100px;
+			padding:10px;
+			font-size:20px;
+			color:white;
+			background:cornflowerblue;
+		
+		
+		}
+		
+		
+	
+	</style>
+	
+
+
+
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+{{deger}}<br>
+<!--
+<button ng-click="deger=true">göster</button>
+<button ng-click="deger=false">gizle</button>
+-->
+
+<button ng-click="eylem()">göster/gizle</button>
+<!--
+<div ng-show="deger" class="deneme">deneme bir ders</div>
+-->
+<div ng-if="deger" class="deneme">deneme bir ders</div>
+
+<!--ng-hide , ng-show un tam tersi -->
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+
+        benimapp.controller("mycontrol",function($scope){
+
+
+
+
+
+        });
+
+        benimapp.directive("goster",function(){
+
+            return {
+
+                link:function(scope,element,attrs){
+
+                    if(attrs.goster=='true') {
+                        element.css({"display":"block"});
+                    }else {
+                        element.css({"dispay":"none"});
+                    }
+
+                }
+
+
+            }
+
+        });
+
+        benimapp.directive("kisalt",function(){
+
+           return {
+
+               link:function(scope,element,attrs){
+
+                   element.html(element.html().substring(0,attrs.kisalt));
+                   element.append('<span style="color:blue;cursor: pointer;">...devamını oku</span>');
+
+
+
+               }
+
+
+           }
+
+        });
+
+
+
+    </script>
+
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol">
+
+<div goster="true" kisalt="50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis consectetur culpa doloribus dolorum error facere facilis inventore laborum molestias non omnis, perspiciatis quam reprehenderit temporibus, velit, veritatis vitae voluptates.</div>
+<br>
+
+<div  goster="true" kisalt="50"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, eligendi, nemo. Amet cupiditate dignissimos eveniet fugiat illo quasi reiciendis repellendus! Assumenda deleniti dolorem, enim eos inventore neque omnis quod vitae?</div>
+
+<div kisalt="50" goster="true">benim bir deneme ders acaba nasıl oldu bu millet nerdesiniz heyy :D</div>
+
+</body>
+</html>

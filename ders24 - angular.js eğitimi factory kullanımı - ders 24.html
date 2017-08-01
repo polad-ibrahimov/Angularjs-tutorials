@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <script>
+
+        var benimapp = angular.module("myapp",['ngAnimate']);
+
+
+        benimapp.factory("turkey",function(){
+
+            sehirler=["samsun","urfa","antep","istanbul"];
+            return sehirler;
+
+        });
+        benimapp.controller("mycontrol",function($scope,turkey){
+
+            $scope.memleketler=turkey;
+
+            $scope.eylem=function(){
+
+                $scope.memleketler.push($scope.kutu);
+                $scope.kutu="";
+
+
+
+            }
+
+
+
+        });
+
+        benimapp.controller("mycontroll",function($scope,turkey){
+
+            $scope.deneme=turkey;
+
+
+        });
+
+    </script>
+
+
+</head>
+<body ng-app="myapp">
+
+<div  ng-controller="mycontrol"><input  type="text" ng-model="kutu" ng-keyup="$event.keyCode==13 ? eylem():null">
+
+    <ul>
+        <li ng-repeat="mem in memleketler">{{mem}}</li>
+    </ul>
+
+</div> <br>
+
+<hr>
+<div  ng-controller="mycontroll">
+
+    <ul>
+        <li ng-repeat="dene in deneme">{{dene}}</li>
+    </ul>
+
+</div>
+
+
+
+
+</body>
+</html>
